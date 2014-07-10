@@ -1,0 +1,17 @@
+<html>
+<head></head>
+<body>
+	<form name="someForm"
+		  ng-submit="appCtrl.submitForm()"
+		  auto-save
+		  auto-save-model="appCtrl.modelObj"
+		  auto-save-fn="appCtrl.partialSave"
+		  auto-save-mode="interval"
+		  auto-save-interval="5000">
+		<input type="text" ng-model="appCtrl.modelObj.name">
+		<input type="email" ng-model="appCtrl.modelObj.email">
+
+		<input type="submit" value="Save">
+	</form>
+</body>
+</html>
