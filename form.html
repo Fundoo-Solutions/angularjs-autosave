@@ -1,0 +1,15 @@
+<div>
+	<form name="someForm"
+		  ng-submit="frmCtrl.submitForm()"
+		  auto-save
+		  auto-save-model="frmCtrl.modelObj"
+		  auto-save-fn="frmCtrl.partialSave"
+		  auto-save-mode="interval"
+		  auto-save-interval="5000">
+		<input type="text" ng-model="frmCtrl.modelObj.name">
+		<input type="email" ng-model="frmCtrl.modelObj.email">
+
+		<input type="submit" value="Save">
+</form>
+<button ng-click="frmCtrl.next()">Next</button>
+</div>

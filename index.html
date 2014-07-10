@@ -1,17 +1,13 @@
 <html>
-<head></head>
-<body>
-	<form name="someForm"
-		  ng-submit="appCtrl.submitForm()"
-		  auto-save
-		  auto-save-model="appCtrl.modelObj"
-		  auto-save-fn="appCtrl.partialSave"
-		  auto-save-mode="interval"
-		  auto-save-interval="5000">
-		<input type="text" ng-model="appCtrl.modelObj.name">
-		<input type="email" ng-model="appCtrl.modelObj.email">
-
-		<input type="submit" value="Save">
-	</form>
+<head>
+	<title>Fundoo Solutions - Auto Save Directive Demo</title>
+</head>
+<body ng-app="Fundoo.Directives.AutoSave">
+	<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="angular-route.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="autoSave.js"></script>
+	<div ng-view></div>
 </body>
 </html>
