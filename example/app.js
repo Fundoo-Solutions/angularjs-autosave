@@ -17,8 +17,8 @@ app.config(['$routeProvider',
   }
 ]);
 
-app.controller('FormController', ['$location', 'toaster',
-    function($location, toaster) {
+app.controller('FormController', ['$location', 'toaster', '$scope',
+    function($location, toaster, $scope) {
       var self = this;
       self.modelObj = {name: '', email: '', gender: ''};
       self.gender = ['Male', 'Female'];
@@ -28,6 +28,7 @@ app.controller('FormController', ['$location', 'toaster',
         {value: 'Surfing', selected: false },
         {value: 'Drawing', selected: false }
       ];
+
       self.submitForm = function () {
         toaster.pop('success', '', 'Form has been submitted')
       };
