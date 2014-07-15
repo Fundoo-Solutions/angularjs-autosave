@@ -23,7 +23,7 @@
   margin-top: 12px;
 }
 
-.my-app-page  .form-container  [type='checkbox'] {
+.my-app-page  .form-container  input[type='checkbox'] {
     margin-top: 12px;
 }
 
