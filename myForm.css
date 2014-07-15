@@ -19,12 +19,8 @@
    margin-right: 10px;
 }
 
-.my-app-page  .form-container    input[type='radio'] {
+.my-app-page  .form-container    input[type='radio'],  input[type='checkbox']{
   margin-top: 12px;
-}
-
-.my-app-page  .form-container  input[type='checkbox'] {
-    margin-top: 12px;
 }
 
 .toast-top-centered {
