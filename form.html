@@ -17,7 +17,7 @@
                     <h5 class="col-md-2" ng-bind="gender"></h5><input type="radio" name="gender" ng-value="gender" ng-model="frmCtrl.modelObj.gender">
                 </span>
             <h4>Hobbies:</h4>
-            <span  class="row" ng-repeat="hobby in frmCtrl.hobbies">
+            <span  class="row" ng-repeat="hobby in frmCtrl.modelObj.hobbies">
                 <h5 class="col-md-2" ng-bind="hobby.value"></h5><input type="checkbox" name="hobby" ng-model="hobby.selected">
             </span>
             <div class="my-btn pull-right">

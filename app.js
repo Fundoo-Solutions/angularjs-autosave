@@ -18,9 +18,9 @@ app.config(['$routeProvider',
 app.controller('FormController', ['$location', 'toaster',
 		function($location, toaster) {
       var self = this;
-      self.modelObj = {name: '', email: '', gender: '', hobbies: []};
+      self.modelObj = {name: '', email: '', gender: ''};
       self.gender = ['Male', 'Female'];
-      self.hobbies = [
+      self.modelObj.hobbies = [
         {value: 'Playing', selected: false },
         {value: 'Reading', selected: false },
         {value: 'Surfing', selected: false },
