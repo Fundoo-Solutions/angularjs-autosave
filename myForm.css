@@ -1,0 +1,30 @@
+.my-app-page {
+    margin-top: 10px;
+}
+.my-app-page  .form-container {
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background-color: ghostwhite;
+    padding: 10px;
+    margin: 10px 10px 0px 350px;
+    width: 40%;
+}
+.my-app-page  .form-container input[type='text'],[type='email'] {
+    border: 1px solid;
+    border-radius: 5px;
+    width: 50%;
+    padding: 5px;
+}
+.my-app-page  .form-container .my-btn {
+   margin-right: 10px;
+}
+
+.my-app-page  .form-container    input[type='radio'],  input[type='checkbox']{
+  margin-top: 12px;
+}
+
+.toast-top-centered {
+  top: 0;
+  left: 25%;
+//  width: 50%;
+}

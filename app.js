@@ -15,22 +15,29 @@ app.config(['$routeProvider',
 	}
 ]);
 
-app.controller('FormController', ['$location',
-		function($location) {
-			var self = this;
-			self.modelObj = {name: '', email: ''};
-			self.submitForm = function() {
-				console.log('Saving modelObj : ', self.modelObj);
-			};
+app.controller('FormController', ['$location', 'toaster',
+		function($location, toaster) {
+      var self = this;
+      self.modelObj = {name: '', email: '', gender: ''};
+      self.gender = ['Male', 'Female'];
+      self.modelObj.hobbies = [
+        {value: 'Playing', selected: false },
+        {value: 'Reading', selected: false },
+        {value: 'Surfing', selected: false },
+        {value: 'Drawing', selected: false }
+      ];
+      self.submitForm = function () {
+        toaster.pop('success', '', 'Form has been submitted')
+      };
 
-			self.partialSave = function() {
-				console.log('auto saving : ', self.modelObj);
-			};
+      self.partialSave = function () {
+        toaster.pop('success', '', 'Form auto-save has been triggered');
+      };
 
-			self.next = function() {
-				$location.path('/next');
-			}
-		}
+      self.next = function () {
+        $location.path('/next');
+      };
+    }
 	]);
 
 app.controller('DisplayController', [
