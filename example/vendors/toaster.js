@@ -4,16 +4,16 @@
  * AngularJS Toaster
  * Version: 0.4.7
  *
- * Copyright 2013 Jiri Kavulak.  
- * All Rights Reserved.  
- * Use, reproduction, distribution, and modification of this code is subject to the terms and 
+ * Copyright 2013 Jiri Kavulak.
+ * All Rights Reserved.
+ * Use, reproduction, distribution, and modification of this code is subject to the terms and
  * conditions of the MIT license, available at http://www.opensource.org/licenses/mit-license.php
  *
  * Author: Jiri Kavulak
  * Related to project of John Papa and Hans Fjällemark
  */
 
-angular.module('Fundoo.Directives.AutoSave')
+angular.module('toaster', [])
 .service('toaster', ['$rootScope', function ($rootScope) {
     this.pop = function (type, title, body, timeout, bodyOutputType, clickHandler) {
         this.toast = {
@@ -32,7 +32,7 @@ angular.module('Fundoo.Directives.AutoSave')
     };
 }])
 .constant('toasterConfig', {
-    'limit': 0,                   // limits max number of toasts 
+    'limit': 0,                   // limits max number of toasts
     'tap-to-dismiss': true,
     'close-button': false,
     'newest-on-top': true,

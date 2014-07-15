@@ -1,22 +1,24 @@
-var app = angular.module('Fundoo.Directives.AutoSave', ['ngRoute']);
-		console.log('Helloo');
+
+var app = angular.module('Fundoo.Directives.AutoSave.Example',
+  ['ngRoute', 'Fundoo.Directives.AutoSave', 'toaster']);
+
 app.config(['$routeProvider',
-	function($routeProvider) {
-		$routeProvider
-			.when('/', {
-				templateUrl: 'form.html',
-				controller: 'FormController as frmCtrl'
-			})
-			.when('/next', {
-				templateUrl: 'display.html',
-				controller: 'DisplayController as displayCtrl'
-			})
-			.otherwise({redirectTo: '/'});
-	}
+  function($routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: 'form.html',
+        controller: 'FormController as frmCtrl'
+      })
+      .when('/next', {
+        templateUrl: 'display.html',
+        controller: 'DisplayController as displayCtrl'
+      })
+      .otherwise({redirectTo: '/'});
+  }
 ]);
 
 app.controller('FormController', ['$location', 'toaster',
-		function($location, toaster) {
+    function($location, toaster) {
       var self = this;
       self.modelObj = {name: '', email: '', gender: ''};
       self.gender = ['Male', 'Female'];
@@ -38,11 +40,11 @@ app.controller('FormController', ['$location', 'toaster',
         $location.path('/next');
       };
     }
-	]);
+  ]);
 
 app.controller('DisplayController', [
-		function() {
-			var self = this;
-			self.display = 'Random Data';
-		}
-	]);
+    function() {
+      var self = this;
+      self.display = 'Random Data';
+    }
+  ]);
