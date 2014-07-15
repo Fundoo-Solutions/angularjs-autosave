@@ -1,15 +1,30 @@
-<div>
-	<form name="someForm"
-		  ng-submit="frmCtrl.submitForm()"
-		  auto-save
-		  auto-save-model="frmCtrl.modelObj"
-		  auto-save-fn="frmCtrl.partialSave"
-		  auto-save-mode="interval"
-		  auto-save-interval="5000">
-		<input type="text" ng-model="frmCtrl.modelObj.name">
-		<input type="email" ng-model="frmCtrl.modelObj.email">
-
-		<input type="submit" value="Save">
-</form>
-<button ng-click="frmCtrl.next()">Next</button>
+<toaster-container toaster-options="{'position-class': 'toast-top-centered', 'time-out': 5000, 'close-button': true}"></toaster-container>
+<div class="row my-app-page">
+    <div class="col-md-6 form-container">
+        <h3>Enter Your Profile Data</h3>
+        <form name="someForm" class="form-group"
+              ng-submit="frmCtrl.submitForm()"
+              auto-save
+              auto-save-model="frmCtrl.modelObj"
+              auto-save-fn="frmCtrl.partialSave"
+              auto-save-mode="interval"
+              auto-save-interval="5000">
+            <h4>First Name: </h4><input type="text" ng-model="frmCtrl.modelObj.name" placeholder="Your First Name">
+            <h4>Last Name:</h4><input type="text" ng-model="frmCtrl.modelObj.surname" placeholder="Your Last Name">
+            <h4>Email: </h4><input type="email" ng-model="frmCtrl.modelObj.email" placeholder="Your Email Id">
+            <h4>Gender</h4>
+                <span class="row" ng-repeat="gender in frmCtrl.gender">
+                    <h5 class="col-md-2" ng-bind="gender"></h5><input type="radio" name="gender" ng-value="gender" ng-model="frmCtrl.modelObj.gender">
+                </span>
+            <h4>Hobbies:</h4>
+            <span  class="row" ng-repeat="hobby in frmCtrl.hobbies">
+                <h5 class="col-md-2" ng-bind="hobby.value"></h5><input type="checkbox" name="hobby" ng-model="hobby.selected">
+            </span>
+            <div class="my-btn pull-right">
+                <input type="submit" class="btn btn-default" value="Save">
+                <button class="btn btn-primary" ng-click="frmCtrl.next()">Next</button>
+            </div>
+        </form>
+    </div>
 </div>
+
