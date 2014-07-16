@@ -23,6 +23,11 @@
   margin-top: 12px;
 }
 
+.my-app-page  .form-container .select-box{
+    width: 50%;
+    margin-bottom: 15px;
+}
+
 .toast-top-centered {
   top: 0;
   left: 25%;
