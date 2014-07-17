@@ -19,8 +19,10 @@ app.config(['$routeProvider',
 
 app.controller('FormController', ['$location', 'toaster', '$scope', 'localStorageService',
     function($location, toaster, $scope, localStorageService) {
+
       var self = this;
-      self.modelObj = self.dummyObj= {name: '', email: '', gender: '', city: ''};
+      self.isActive = false;
+      self.modelObj = {Firstname: '', Lastname: '' , email: '', gender: '', city: ''};
       self.gender = ['Male', 'Female'];
       self.modelObj.hobbies = [
         {value: 'Playing', selected: false },
@@ -30,28 +32,44 @@ app.controller('FormController', ['$location', 'toaster', '$scope', 'localStorag
       ];
       self.city = ['Mumbai','Pune', 'Bangalore', 'Delhi'];
 
+
       self.submitForm = function () {
         toaster.pop('success', '', 'Form has been submitted')
       };
 
       self.partialSave = function () {
         toaster.pop('success', '', 'Form auto-save has been triggered');
-        console.log('self.modelObj',self.modelObj)
         localStorageService.set('localStorageDemo', self.modelObj);
+        self.isActive = false
       };
 
       self.restore = function () {
         self.modelObj = localStorageService.get('localStorageDemo');
+        self.isActive = false;
       };
 
       self.remove = function() {
-        console.log('inside remove fn')
-        localStorageService.remove('localStorageDemo');
+//        localStorageService.remove('localStorageDemo');
+        self.dummyObj = null;
+        localStorageService.set('localStorageDemo', self.dummyObj);
+        self.isActive = false;
       }
+
+      self.isEmpty = function() {
+        self.dummyObj = localStorageService.get('localStorageDemo');
+        if(self.dummyObj) {
+          self.isActive = true;
+        } else {
+          self.isActive = false;
+        }
+      }
+
+      self.isEmpty();
 
       self.next = function () {
         $location.path('/next');
       };
+
     }
   ]);
 

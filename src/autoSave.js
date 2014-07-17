@@ -12,11 +12,10 @@ angular.module('Fundoo.Directives.AutoSave', [])
           var autoSaveMode = $attrs.autoSaveMode;
           var autoSaveInterval = $scope.$eval($attrs.autoSaveInterval) * 1;
           latestModel = angular.copy(autoSaveModel);
-//          var autoRemoveInterval = $scope.$eval($attrs.autoRemoveInterval) * 1;
           var autoRemoveFn = $scope.$eval($attrs.autoRemoveFn);
-//          var removeInterval = 60*60*10000;
-
           var intervalPromise = null;
+
+
 
           function blurHandler() {
             $scope.$apply(function() {
@@ -24,31 +23,23 @@ angular.module('Fundoo.Directives.AutoSave', [])
             });
           }
 
-          $scope.$watch('autoSaveModel', function() {
-              console.log('autoSaveModel',autoSaveModel);
-              console.log('latestModel',latestModel);
-          });
-
-          var autosave = function() {
-            console.log('autosave called')
-            if(autoSaveMode === 'interval') {
-              intervalPromise = $interval(function() {
-                if(!hasModel || !angular.equals(latestModel, autoSaveModel)) {
-                  latestModel = angular.copy(autoSaveModel);
-                  autoSaveFn();
-                }
-              }, autoSaveInterval);
-            } else if (autoSaveMode === 'blur') {
-              $element.find('input').on('blur', blurHandler);
+            var autoSave = function() {
+              if(autoSaveMode === 'interval') {
+                intervalPromise = $interval(function() {
+                  autoSaveModel = $scope.$eval($attrs.autoSaveModel);
+                  if(!hasModel || !angular.equals(latestModel, autoSaveModel)) {
+                    latestModel = angular.copy(autoSaveModel);
+                    autoSaveFn();
+                  }
+                }, autoSaveInterval);
+              } else if (autoSaveMode === 'blur') {
+                $element.find('input').on('blur', blurHandler);
+              }
             }
-          }
 
-          autosave();
+          autoSave();
 
-
-
-            var removeFromLocalStorage = $interval(function() {
-              console.log('inside directive to remove')
+          var removeFromLocalStorage = $interval(function() {
               autoRemoveFn();
             }, 600000/10 );
 
