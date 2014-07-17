@@ -20,7 +20,7 @@ app.config(['$routeProvider',
 app.controller('FormController', ['$location', 'toaster', '$scope', 'localStorageService',
     function($location, toaster, $scope, localStorageService) {
       var self = this;
-      self.modelObj = {name: '', email: '', gender: '', city: ''};
+      self.modelObj = self.dummyObj= {name: '', email: '', gender: '', city: ''};
       self.gender = ['Male', 'Female'];
       self.modelObj.hobbies = [
         {value: 'Playing', selected: false },
@@ -36,13 +36,18 @@ app.controller('FormController', ['$location', 'toaster', '$scope', 'localStorag
 
       self.partialSave = function () {
         toaster.pop('success', '', 'Form auto-save has been triggered');
+        console.log('self.modelObj',self.modelObj)
         localStorageService.set('localStorageDemo', self.modelObj);
       };
 
-      self.reset = function () {
+      self.restore = function () {
         self.modelObj = localStorageService.get('localStorageDemo');
-
       };
+
+      self.remove = function() {
+        console.log('inside remove fn')
+        localStorageService.remove('localStorageDemo');
+      }
 
       self.next = function () {
         $location.path('/next');
