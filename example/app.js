@@ -34,7 +34,19 @@ app.controller('FormController', ['$location', 'toaster', '$scope', 'localStorag
 
 
       self.submitForm = function () {
-        toaster.pop('success', '', 'Form has been submitted')
+        toaster.pop('success', '', 'Form has been submitted');
+        localStorageService.remove('localStorageDemo');
+        self.reset();
+      };
+
+      self.reset = function() {
+        self.modelObj = {};
+        self.modelObj.hobbies = [
+          {value: 'Playing', selected: false },
+          {value: 'Reading', selected: false },
+          {value: 'Surfing', selected: false },
+          {value: 'Drawing', selected: false }
+        ];
       };
 
       self.partialSave = function () {
@@ -46,10 +58,10 @@ app.controller('FormController', ['$location', 'toaster', '$scope', 'localStorag
       self.restore = function () {
         self.modelObj = localStorageService.get('localStorageDemo');
         self.isActive = false;
+        localStorageService.remove('localStorageDemo');
       };
 
       self.remove = function() {
-//        localStorageService.remove('localStorageDemo');
         self.dummyObj = null;
         localStorageService.set('localStorageDemo', self.dummyObj);
         self.isActive = false;
