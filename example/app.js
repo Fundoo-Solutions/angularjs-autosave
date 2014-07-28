@@ -41,7 +41,7 @@ app.controller('FormController', ['$location', 'toaster', '$scope', 'localStorag
       self.partialSave = function () {
         toaster.pop('success', '', 'Form auto-save has been triggered');
         localStorageService.set('localStorageDemo', self.modelObj);
-        self.isActive = false
+        self.isActive = false;
       };
 
       self.restore = function () {

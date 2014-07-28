@@ -14,35 +14,23 @@ angular.module('Fundoo.Directives.AutoSave', [])
           latestModel = angular.copy(autoSaveModel);
           var intervalPromise = null;
 
-
-
           function blurHandler() {
             $scope.$apply(function() {
               autoSaveFn();
             });
           }
 
-            var autoSave = function() {
-              if(autoSaveMode === 'interval') {
-                intervalPromise = $interval(function() {
-                  autoSaveModel = $scope.$eval($attrs.autoSaveModel);
-                  if(!hasModel || !angular.equals(latestModel, autoSaveModel)) {
-                    latestModel = angular.copy(autoSaveModel);
-                    autoSaveFn();
-                  }
-                }, autoSaveInterval);
-              } else if (autoSaveMode === 'blur') {
-                $element.find('input').on('blur', blurHandler);
+          if(autoSaveMode === 'interval') {
+            intervalPromise = $interval(function() {
+              autoSaveModel = $scope.$eval($attrs.autoSaveModel);
+              if(!hasModel || !angular.equals(latestModel, autoSaveModel)) {
+                latestModel = angular.copy(autoSaveModel);
+                autoSaveFn();
               }
-            }
-
-          autoSave();
-
-          var removeFromLocalStorage = $interval(function() {
-              autoRemoveFn();
-            }, 600000/10 );
-
-
+            }, autoSaveInterval);
+          } else if (autoSaveMode === 'blur') {
+            $element.find('input').on('blur', blurHandler);
+          }
 
           $element.on('$destroy', function(event) {
             if(intervalPromise) {
