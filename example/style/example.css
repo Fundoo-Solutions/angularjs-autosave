@@ -1,5 +1,6 @@
 .reset-info {
     left: 330px;
+    cursor: pointer;
 }
 .my-app-page {
     margin-top: 10px;

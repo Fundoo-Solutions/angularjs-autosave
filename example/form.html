@@ -1,8 +1,8 @@
 <toaster-container toaster-options="{'position-class': 'toast-top-centered', 'time-out': 5000, 'close-button': true}"></toaster-container>
 <div class="col-md-5 alert alert-info reset-info" ng-show="frmCtrl.isActive">
-    Data is there in Local Storage, You want &nbsp; &nbsp;&nbsp;
-    <button class="btn btn-primary" ng-click="frmCtrl.restore()">Restore</button>
-    <button class="btn btn-default" ng-click="frmCtrl.remove()"> Discard</button>
+  You have a previously auto-saved form. Do you want to &nbsp;
+    <a ng-click="frmCtrl.restore()">Restore?</a>&nbsp; &nbsp;
+    <a ng-click="frmCtrl.remove()"> Discard?</a>
 </div>
 <div class="row my-app-page">
     <div class="col-md-6 form-container">

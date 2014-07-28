@@ -31,6 +31,8 @@ angular.module('Fundoo.Directives.AutoSave', [])
                     autoSaveFn();
                   }
                 }, autoSaveInterval);
+              } else if (autoSaveMode === 'blur') {
+                $element.find('input').on('blur', blurHandler);
               }
             }
 
