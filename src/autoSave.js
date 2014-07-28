@@ -12,7 +12,6 @@ angular.module('Fundoo.Directives.AutoSave', [])
           var autoSaveMode = $attrs.autoSaveMode;
           var autoSaveInterval = $scope.$eval($attrs.autoSaveInterval) * 1;
           latestModel = angular.copy(autoSaveModel);
-          var autoRemoveFn = $scope.$eval($attrs.autoRemoveFn);
           var intervalPromise = null;
 
 
@@ -32,8 +31,6 @@ angular.module('Fundoo.Directives.AutoSave', [])
                     autoSaveFn();
                   }
                 }, autoSaveInterval);
-              } else if (autoSaveMode === 'blur') {
-                $element.find('input').on('blur', blurHandler);
               }
             }
 
