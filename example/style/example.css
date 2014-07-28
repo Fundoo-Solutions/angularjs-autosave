@@ -1,3 +1,7 @@
+.reset-info {
+    left: 330px;
+    cursor: pointer;
+}
 .my-app-page {
     margin-top: 10px;
 }
@@ -5,8 +9,8 @@
     border: 1px solid #000000;
     border-radius: 5px;
     background-color: ghostwhite;
-    padding: 10px;
-    margin: 10px 10px 0px 350px;
+    padding: 0px 10px 10px 10px;
+    margin: 0px 10px 0px 350px;
     width: 40%;
 }
 .my-app-page  .form-container input[type='text'],[type='email'] {
@@ -23,8 +27,14 @@
   margin-top: 12px;
 }
 
+.my-app-page  .form-container .select-box{
+    width: 50%;
+    margin-bottom: 15px;
+}
+
 .toast-top-centered {
   top: 0;
   left: 25%;
 //  width: 50%;
 }
+

@@ -22,6 +22,7 @@ angular.module('Fundoo.Directives.AutoSave', [])
 
           if(autoSaveMode === 'interval') {
             intervalPromise = $interval(function() {
+              autoSaveModel = $scope.$eval($attrs.autoSaveModel);
               if(!hasModel || !angular.equals(latestModel, autoSaveModel)) {
                 latestModel = angular.copy(autoSaveModel);
                 autoSaveFn();
