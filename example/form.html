@@ -1,4 +1,9 @@
 <toaster-container toaster-options="{'position-class': 'toast-top-centered', 'time-out': 5000, 'close-button': true}"></toaster-container>
+<div class="col-md-5 alert alert-info reset-info" ng-show="frmCtrl.isActive">
+    Data is there in Local Storage, You want &nbsp; &nbsp;&nbsp;
+    <button class="btn btn-primary" ng-click="frmCtrl.restore()">Restore</button>
+    <button class="btn btn-default" ng-click="frmCtrl.remove()"> Discard</button>
+</div>
 <div class="row my-app-page">
     <div class="col-md-6 form-container">
         <h3>Enter Your Profile Data</h3>
@@ -26,7 +31,6 @@
             <div class="my-btn pull-right">
                 <input type="submit" class="btn btn-default" value="Save">
                 <button class="btn btn-primary" ng-click="frmCtrl.next()">Next</button>
-                <button class="btn btn-primary" ng-click="frmCtrl.restore()" ng-show="frmCtrl.isActive">Restore</button> {{frmCtrl.showRestore}}
             </div>
         </form>
     </div>

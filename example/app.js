@@ -36,7 +36,6 @@ app.controller('FormController', ['$location', 'toaster', '$scope', 'localStorag
       self.submitForm = function () {
         toaster.pop('success', '', 'Form has been submitted');
         localStorageService.remove('localStorageDemo');
-        self.reset();
       };
 
       self.reset = function() {

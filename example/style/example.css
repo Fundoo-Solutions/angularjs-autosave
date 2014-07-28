@@ -1,3 +1,6 @@
+.reset-info {
+    left: 330px;
+}
 .my-app-page {
     margin-top: 10px;
 }
@@ -5,8 +8,8 @@
     border: 1px solid #000000;
     border-radius: 5px;
     background-color: ghostwhite;
-    padding: 10px;
-    margin: 10px 10px 0px 350px;
+    padding: 0px 10px 10px 10px;
+    margin: 0px 10px 0px 350px;
     width: 40%;
 }
 .my-app-page  .form-container input[type='text'],[type='email'] {
@@ -33,3 +36,4 @@
   left: 25%;
 //  width: 50%;
 }
+
