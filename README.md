@@ -33,7 +33,7 @@ You can use angularjs-autosave directory  in two mode
 
 Let us take a look at the HTML first:
 
-*If you are using interval mode
+*If you are using interval mode*
 
 ```
  <form name="someForm" class="form-group"
@@ -57,7 +57,7 @@ There are five major attributes in the form element.
                          time in millisecond, so in above example auto-save-fn will execute in every 5 seconds.
 
 
-*If you are using blur mode(whenever htlm element got focus or changes foucus within a form)
+*If you are using blur mode(whenever htlm element got focus or changes foucus within a form)*
 
 ```
  <form name="someForm" class="form-group"
@@ -69,6 +69,15 @@ There are five major attributes in the form element.
 ```
 Here two things have changed.
 
-1. *auto-save-mode*: Here the value of auto-save-mode is "blur", this means whenever focus chenges in html form
+1. *auto-save-mode*: Here the value of auto-save-mode is "blur", this means whenever focus chenges in html form,
 					 from one element to another. auto-save-fn will execute.
-2. *auto-save-interval* attribute is removed because we don't need that here since we are not using interval mode.					 	
+2. *auto-save-interval*: attribute is removed because we don't need that here since we are not using interval mode.					 	
+
+## Who are we?
+
+We are Fundoo Solutions, an awesome company based out of India who just love AngularJS. Check out our [website] or our [LinkedIn] page.
+
+## License
+
+The code above is open sourced, and licensed under the MIT License, which is the simplest and easiest to understand, and most open.
+Basically, feel free to use this code or modify it as per your needs.
